@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        #output {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 36px;
+        }
+
+        #foods {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            
+        }
+
+        label {
+            margin: 0 10px;
+            font-size: 18px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        img {
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        p{
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            font-size: 16px;
+            color: #555;
+            background-color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="output">
+
+        <h1 id="htag">Its time to Eat</h1>
+    </div>
+    <div id="foods">
+        <label>burger</label>
+        <input type="checkbox" value="burger" id="food1">
+        <label>pizza</label>
+        <input type="checkbox" value="pizza" id="food2">
+        <label>colddrink</label>
+        <input type="checkbox" value="colddrink" id="food3">
+        <label>sandwich</label>
+        <input type="checkbox" value="sandwich" id="food4">
+    </div>
+
+    <button id="sumbitbutton">Order Food</button>
+    <button id="resetbutton">New Order</button>
+</body>
+
+</html>
+<script>
+    let foods = document.querySelectorAll('#foods input')
+    //console.log(foods[0].value)
+    let Orderbtn = document.getElementById('sumbitbutton')
+    let resetbutton = document.getElementById('resetbutton')
+    let burger = document.getElementById('food1')
+    let pizza = document.getElementById('food2')
+    let colddrink = document.getElementById('food3')
+    let sandwich = document.getElementById('food4')
+    let tgt = document.querySelector('h1')
+
+
+
+    Orderbtn.addEventListener('click', function () {
+
+        if (burger.checked) {
+            pizza.disabled = true
+            colddrink.disabled = true
+            sandwich.disabled = true
+            tgt.innerText = "Your order on the Way"
+            let mypromise = new Promise(function (resolve, reject) {
+
+                setTimeout(function () {
+                    let imgg = document.createElement("IMG");
+                    imgg.setAttribute("src", "https://plus.unsplash.com/premium_photo-1667682209935-b6c87cced668?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YnVyZ2VyfGVufDB8fDB8fHww");
+                    document.body.appendChild(imgg);
+                    resolve()
+
+
+                }, 2000)
+
+            })
+            mypromise.then(function (info) {
+                console.log(info)
+
+                tgt.innerText = "Your order has been sucessfully delivered"
+                Orderbtn.disabled = true
+                let orderid = document.createElement('p')
+                orderid.innerText = "Order id:" + Math.floor(Math.random() * 1000);
+                document.body.appendChild(orderid);
+
+
+
+
+            })
+        }
+        else if (pizza.checked) {
+
+            burger.disabled = true
+            colddrink.disabled = true
+            sandwich.disabled = true
+
+            tgt.innerText = "Your order on the Way"
+            let mypromise = new Promise(function (resolve, reject) {
+
+                setTimeout(function () {
+                    let imgg2 = document.createElement("IMG");
+                    imgg2.setAttribute("src", "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGl6emF8ZW58MHx8MHx8fDA%3D");
+                    document.body.appendChild(imgg2);
+                    resolve('i am resolve')
+
+
+                }, 2000)
+
+            })
+            mypromise.then(function (info) {
+                console.log(info)
+                tgt.innerText = "Your Order has been sucessfully delivered"
+                Orderbtn.disabled = true
+                let orderid = document.createElement('p')
+                orderid.innerText = "Order id:" + Math.floor(Math.random() * 1000);
+                document.body.appendChild(orderid);
+            })
+        }
+        else if (colddrink.checked) {
+            pizza.disabled = true
+            burger.disabled = true
+            sandwich.disabled = true
+
+            tgt.innerText = "Your order on the Way"
+            let mypromise = new Promise(function (resolve, reject) {
+
+                setTimeout(function () {
+                    let imgg2 = document.createElement("IMG");
+                    imgg2.setAttribute("src", "https://media.istockphoto.com/id/1062831310/photo/pour-soft-drink-in-glass-with-ice-splash-on-dark-background.webp?b=1&s=170667a&w=0&k=20&c=VJSejmdGbxDiXmBdart54Yl8R5zece_ZTHcvHenk2w0=");
+                    document.body.appendChild(imgg2);
+                    resolve('i am resolve')
+
+
+                }, 2000)
+
+            })
+            mypromise.then(function (info) {
+                console.log(info)
+                tgt.innerText = "Your Order has been sucessfully delivered"
+                Orderbtn.disabled = true
+                let orderid = document.createElement('p')
+                orderid.innerText = "Order id:" + Math.floor(Math.random() * 1000);
+                document.body.appendChild(orderid);
+            })
+        }
+        else if (sandwich.checked) {
+
+            pizza.disabled = true
+            colddrink.disabled = true
+            burger.disabled = true
+
+            tgt.innerText = "Your order on the Way"
+            let mypromise = new Promise(function (resolve, reject) {
+
+                setTimeout(function () {
+                    let imgg2 = document.createElement("IMG");
+                    imgg2.setAttribute("src", "https://images.unsplash.com/photo-1567234669003-dce7a7a88821?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHNhbmR3aWNofGVufDB8fDB8fHww");
+                    document.body.appendChild(imgg2);
+                    resolve('i am resolve')
+                    reject('i am reject')
+
+                }, 2000)
+
+            })
+            mypromise
+                .then(function (info) {
+                    console.log(info)
+                    tgt.innerText = "Your Order has been sucessfully delivered"
+                    Orderbtn.disabled = true
+                    let orderid = document.createElement('p')
+                    orderid.innerText = "Order id:" + Math.floor(Math.random() * 1000);
+                    document.body.appendChild(orderid);
+                })
+
+
+        }
+    })
+
+    resetbutton.addEventListener('click', function () {
+        location.reload();
+    })
+
+
+
+
+</script>
