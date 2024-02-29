@@ -125,6 +125,9 @@
                     imgg.setAttribute("src", "https://plus.unsplash.com/premium_photo-1667682209935-b6c87cced668?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YnVyZ2VyfGVufDB8fDB8fHww");
                     document.body.appendChild(imgg);
                     resolve()
+                    let orderid = document.createElement('p')
+                orderid.innerText = "Order id:" + Math.floor(Math.random() * 1000);
+                document.body.appendChild(orderid);
 
 
                 }, 2000)
@@ -135,9 +138,7 @@
 
                 tgt.innerText = "Your order has been sucessfully delivered"
                 Orderbtn.disabled = true
-                let orderid = document.createElement('p')
-                orderid.innerText = "Order id:" + Math.floor(Math.random() * 1000);
-                document.body.appendChild(orderid);
+               
 
 
 
@@ -158,6 +159,9 @@
                     imgg2.setAttribute("src", "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGl6emF8ZW58MHx8MHx8fDA%3D");
                     document.body.appendChild(imgg2);
                     resolve('i am resolve')
+                    let orderid = document.createElement('p')
+                orderid.innerText = "Order id:" + Math.floor(Math.random() * 1000);
+                document.body.appendChild(orderid);
 
 
                 }, 2000)
@@ -167,9 +171,7 @@
                 console.log(info)
                 tgt.innerText = "Your Order has been sucessfully delivered"
                 Orderbtn.disabled = true
-                let orderid = document.createElement('p')
-                orderid.innerText = "Order id:" + Math.floor(Math.random() * 1000);
-                document.body.appendChild(orderid);
+                
             })
         }
         else if (colddrink.checked) {
@@ -185,6 +187,9 @@
                     imgg2.setAttribute("src", "https://media.istockphoto.com/id/1062831310/photo/pour-soft-drink-in-glass-with-ice-splash-on-dark-background.webp?b=1&s=170667a&w=0&k=20&c=VJSejmdGbxDiXmBdart54Yl8R5zece_ZTHcvHenk2w0=");
                     document.body.appendChild(imgg2);
                     resolve('i am resolve')
+                    let orderid = document.createElement('p')
+                orderid.innerText = "Order id:" + Math.floor(Math.random() * 1000);
+                document.body.appendChild(orderid);
 
 
                 }, 2000)
@@ -194,9 +199,7 @@
                 console.log(info)
                 tgt.innerText = "Your Order has been sucessfully delivered"
                 Orderbtn.disabled = true
-                let orderid = document.createElement('p')
-                orderid.innerText = "Order id:" + Math.floor(Math.random() * 1000);
-                document.body.appendChild(orderid);
+               
             })
         }
         else if (sandwich.checked) {
@@ -213,7 +216,10 @@
                     imgg2.setAttribute("src", "https://images.unsplash.com/photo-1567234669003-dce7a7a88821?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHNhbmR3aWNofGVufDB8fDB8fHww");
                     document.body.appendChild(imgg2);
                     resolve('i am resolve')
-                    reject('i am reject')
+                    
+                    let orderid = document.createElement('p')
+                    orderid.innerText = "Order id:" + Math.floor(Math.random() * 1000);
+                    document.body.appendChild(orderid);
 
                 }, 2000)
 
