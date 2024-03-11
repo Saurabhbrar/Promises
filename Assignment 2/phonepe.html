@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone-pe</title>
+    <style>
+        body{
+            background-color:#cfd8dc;
+            background-image: linear-gradient(to bottom right, #d69340 , #ff5e62);
+            margin: 0;
+            padding: 0;
+            height: 100vh; 
+        }
+        div {
+            height: 450px;
+            width: 270px;
+            border-radius: 10px;
+            background-color: #f0eff4;
+            box-shadow: 0px 0px 10px;
+            margin: auto;
+            margin-top: 50px;
+
+        }
+
+        #hone {
+            color: navy;
+            font-size: 25px;
+            margin-left: 20%;
+            padding-top: 2%;
+
+        }
+
+        input {
+            margin-left: 17%;
+        }
+
+        button {
+            margin-left: 35%;
+            margin-top: 30px;
+        }
+
+        #newhtag {
+            font-size: 25px;
+            color: navy;
+            position: sticky;
+
+        }
+
+        .header {
+            width: 100%;
+        }
+
+        #two {
+            margin-top: 98%;
+            margin-left: 11%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="main">
+        <img class="header" src="notification-area_2x.png" alt="">
+    </div>
+</body>
+
+</html>
+<script>
+
+    let displayone = true;
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+        if (displayone) {
+            let maindiv = document.getElementById('main');
+            let createh = document.createElement('h1');
+            createh.innerText = "Enter Amount";
+            createh.setAttribute('id', 'hone');
+
+            let inputone = document.createElement('input');
+            inputone.setAttribute('type', 'number');
+            inputone.setAttribute('id', 'input');
+
+            let paybutton = document.createElement('button');
+            paybutton.innerText = "Pay Now";
+            paybutton.setAttribute('id', 'button');
+
+            let imgtwo = document.createElement('img');
+            imgtwo.setAttribute('src', 'Display_Navigation-bar.jpg');
+            imgtwo.setAttribute('id', 'two');
+
+            maindiv.append(createh, inputone, paybutton, imgtwo);
+
+            paybutton.addEventListener('click', function () {
+                let inputvalue = inputone.value;
+                if (inputvalue >= 1) {
+                    displayone = false;
+                    createh.style.display = 'none';
+                    inputone.style.display = 'none';
+                    paybutton.style.display = 'none';
+                    imgtwo.style.display = 'none';
+
+                    let newhtag = document.createElement('h1');
+                    newhtag.innerText = "Please wait a while";
+                    newhtag.setAttribute('id', 'newhtag');
+                    maindiv.appendChild(newhtag);
+
+                    setTimeout(function () {
+                        newhtag.innerText = "Transfer completed";
+                        let reloadbutton = document.createElement('button');
+                        reloadbutton.innerText = "Back to Home";
+                        reloadbutton.setAttribute('id', 'reload');
+                        reloadbutton.addEventListener('click', function () {
+                            location.reload();
+                        });
+                        maindiv.append(reloadbutton);
+                    }, 2000);
+                }
+            });
+
+            // Disable pay button if input value is less than 1
+            inputone.addEventListener('input', function () {
+                if (inputone.value < 1) {
+                    paybutton.disabled = true;
+                } else {
+                    paybutton.disabled = false;
+                }
+            });
+        }
+    });
+</script>
